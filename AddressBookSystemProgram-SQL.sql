@@ -2,7 +2,7 @@
 UC-1
 create database Address_Book_Service_DB
 use Address_Book_Service_DB;
-*/
+
 ------ UC 2: Create Table ------
 create table Address_Book_Table
 (
@@ -18,5 +18,15 @@ Email varchar(200)
 
 Select * from Address_Book_Table;
 
+*/
 
+------ UC 3: Insert Values to Table ------
+Insert into Address_Book_Table
+(FirstName,SecondName,Address,City,State,zip,PhoneNumber,Email) 
+values
+('Harish','Roy','123_Street','Bangalore','Karnataka',12345,9898765050,'harish@gmail.com'),
+('Ruju','Singh','321_GolaRoad','kanpur','UP',54321,98402000,'Ruju@gmail.com'),
+('Rinku','Yadav','132_Biharsarif','BiharSarif','Bihar',53421,87210123453,'rinku@gmail.com'),
+('Pramela','Satesh','432_StreetGali','indore','MP',13242,9752909823,'Pramela@gmail.com');
+select * from Address_Book_Table
 
