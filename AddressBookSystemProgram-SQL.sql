@@ -40,7 +40,7 @@ where FirstName='Rinku'
 --Edit Address based on Name--
 Update Address_Book_Table
 set Address='321_streetRoad'
-where FirstName='Rinku' and SecondName='Yadav';
+where FirstName='Raju' and SecondName='Yadav;
 
 ------ UC 5: Ability to Delete Contact Person Based on their Name ------
 delete 
@@ -55,10 +55,42 @@ select * from Address_Book_Table
 
 select * from Address_Book_Table
 where City='Bangalore' or State='Karnataka';
-*/
+
 
 ------ UC 7: Ability to Retrieve Count of Person belonging to a City or State ------
 
 select Count(*),state,City
 from Address_Book_Table
 Group by state,City;
+
+
+------ UC 8: Ability to retrieve entries sorted alphabetically ------
+
+select * from Address_Book_Table
+where City='Biharsarif'
+order by(FirstName)
+
+*/
+
+------ UC 9: Identify each Address Book with name andType ------
+
+alter table Address_Book_Table
+add 
+AddressBookName varchar(100),
+Type varchar(100)
+
+
+--Update values for Type=Friends--
+update Address_Book_Table
+set AddressBookName='FriendName',Type='Friends'
+where FirstName='Harish' or SecondName='Roy'
+
+--Update values for Type=Family--
+update Address_Book_Table
+set AddressBookName='Father',Type='Family'
+where FirstName='Raju'
+
+--Update values for Type=Profession--
+update Address_Book_Table
+set AddressBookName='Manager',Type='Profession'
+where FirstName='Ruju'
