@@ -172,7 +172,7 @@ insert into TypeManager values
 (2,4)
 select * from TypeManager
 
-*/
+
 
 ------ UseCase 11: Create Contact for both Family and Friends Type ------ 
 
@@ -181,3 +181,40 @@ from Address_Book
 Full JOIN Contact_Person on Address_Book.Address_BookID=AddressBook_ID 
 Full JOIN TypeManager on TypeManager.Contact_Identity=Contact_ID
 Full JOIN ContactType on TypeManager.ContactType_Identity=ContactType_ID
+
+*/
+
+------  UseCase 13------  
+
+-- 1: Ability to Retrieve Person belonging to a City or State --
+
+select Address_BookName,Concat(FirstName,' ',SecondName) as Name,Concat(Address,' ,',City,' ,',State,' ,',zip) as Address,PhoneNumber,Email,ContactType_Name
+from Contact_Person 
+INNER JOIN  Address_Book on Address_Book.Address_BookID=AddressBook_ID and (City='Bangalore' or State='Karnataka')
+INNER JOIN TypeManager on TypeManager.Contact_Identity=Contact_ID
+INNER JOIN ContactType on TypeManager.ContactType_Identity=ContactType_ID
+
+------ 2: Ability to Retrieve Count of Person belonging to a City or State ------
+
+select Count(*),state,City
+from Contact_Person 
+INNER JOIN  Address_Book on Address_Book.Address_BookID=AddressBook_ID 
+Group by state,City
+
+------ 3: Ability to retrieve entries sorted alphabetically ------
+
+select Address_BookName,(FirstName+' '+SecondName) as Name,Concat(Address,' ,',City,' ,',State,' ,',zip) as Address,PhoneNumber,Email,ContactType_Name
+from Contact_Person 
+INNER JOIN  Address_Book on Address_Book.Address_BookID=AddressBook_ID and (City='Bangalore')
+INNER JOIN TypeManager on TypeManager.Contact_Identity=Contact_ID
+INNER JOIN ContactType on TypeManager.ContactType_Identity=ContactType_ID
+order by(FirstName)
+
+------ 4: Ability to get number of contact persons by Type------
+
+select Count(*) as NumberOfContacts,ContactType.ContactType_Name
+from Contact_Person 
+INNER JOIN  Address_Book on Address_Book.Address_BookID=AddressBook_ID
+INNER JOIN TypeManager on TypeManager.Contact_Identity=Contact_ID
+INNER JOIN ContactType on TypeManager.ContactType_Identity=ContactType_ID
+Group by ContactType_Name
