@@ -18,7 +18,7 @@ Email varchar(200)
 
 Select * from Address_Book_Table;
 
-*/
+
 
 ------ UC 3: Insert Values to Table ------
 Insert into Address_Book_Table
@@ -29,4 +29,10 @@ values
 ('Rinku','Yadav','132_Biharsarif','BiharSarif','Bihar',53421,87210123453,'rinku@gmail.com'),
 ('Pramela','Satesh','432_StreetGali','indore','MP',13242,9752909823,'Pramela@gmail.com');
 select * from Address_Book_Table
+*/
 
+------ UC 4: Ability to Edit Contact Person Based on their Name ------
+--Edit Email based on Name--
+Update Address_Book_Table
+set Email='rinkuyadav123@gmail.com'
+where FirstName='Rinku'
