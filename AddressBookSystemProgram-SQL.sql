@@ -41,10 +41,17 @@ where FirstName='Rinku'
 Update Address_Book_Table
 set Address='321_streetRoad'
 where FirstName='Rinku' and SecondName='Yadav';
-*/
+
 ------ UC 5: Ability to Delete Contact Person Based on their Name ------
 delete 
 from Address_Book_Table
 where FirstName='Pramela' and SecondName='Satesh'
 
 select * from Address_Book_Table
+
+*/
+
+------ UC 6: Ability to Retrieve Person belonging to a City or State ------
+
+select * from Address_Book_Table
+where City='Bangalore' or State='Karnataka';
