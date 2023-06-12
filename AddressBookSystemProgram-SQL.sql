@@ -70,7 +70,7 @@ select * from Address_Book_Table
 where City='Biharsarif'
 order by(FirstName)
 
-*/
+
 
 ------ UC 9: Identify each Address Book with name andType ------
 
@@ -94,3 +94,10 @@ where FirstName='Raju'
 update Address_Book_Table
 set AddressBookName='Manager',Type='Profession'
 where FirstName='Ruju'
+
+*/
+
+------ UC 10: Ability to get number of contact persons by Type------
+select Count(*) as NumberOfContacts,Type
+from Address_Book_Table
+Group by Type
