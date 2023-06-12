@@ -29,10 +29,22 @@ values
 ('Rinku','Yadav','132_Biharsarif','BiharSarif','Bihar',53421,87210123453,'rinku@gmail.com'),
 ('Pramela','Satesh','432_StreetGali','indore','MP',13242,9752909823,'Pramela@gmail.com');
 select * from Address_Book_Table
-*/
+
 
 ------ UC 4: Ability to Edit Contact Person Based on their Name ------
 --Edit Email based on Name--
 Update Address_Book_Table
 set Email='rinkuyadav123@gmail.com'
 where FirstName='Rinku'
+
+--Edit Address based on Name--
+Update Address_Book_Table
+set Address='321_streetRoad'
+where FirstName='Rinku' and SecondName='Yadav';
+*/
+------ UC 5: Ability to Delete Contact Person Based on their Name ------
+delete 
+from Address_Book_Table
+where FirstName='Pramela' and SecondName='Satesh'
+
+select * from Address_Book_Table
