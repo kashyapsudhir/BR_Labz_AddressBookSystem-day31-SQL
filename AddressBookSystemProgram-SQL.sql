@@ -49,9 +49,16 @@ where FirstName='Pramela' and SecondName='Satesh'
 
 select * from Address_Book_Table
 
-*/
+
 
 ------ UC 6: Ability to Retrieve Person belonging to a City or State ------
 
 select * from Address_Book_Table
 where City='Bangalore' or State='Karnataka';
+*/
+
+------ UC 7: Ability to Retrieve Count of Person belonging to a City or State ------
+
+select Count(*),state,City
+from Address_Book_Table
+Group by state,City;
